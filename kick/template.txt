@@ -8,13 +8,14 @@ public class Solution{
             int case_number = Integer.parseInt(bf.readLine());
             for (int k = 0; k < case_number; ++k)
             {
-                System.out.print("Case #"+(k+1)+":");
+                System.out.print("Case #"+(k+1)+": ");
                 // TBD
-                System.out.println(" ");
+                System.out.println("");
             }
         }
         catch(Exception e)
         {
+            System.out.println(e);
             return;
         }
     }

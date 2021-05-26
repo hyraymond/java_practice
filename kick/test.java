@@ -1,11 +1,15 @@
 import java.util.*;
 
+import javax.rmi.ssl.SslRMIClientSocketFactory;
+
 import Round_H_2019_1.*;
+import jdk.jfr.Unsigned;
 class DP_NODE
 {
     double val;
     char prev;
 }
+
 public class test {
     private static void kk(int[] a)
     {
@@ -13,9 +17,9 @@ public class test {
     }
     public static void main(String[] args){
         // Solution.main(args);
-        int[] a =  new int[3];
-        a[0] = 3;
-        kk(a);
-        System.out.println(a[0]);
+        int j = Integer.MAX_VALUE;
+        long k = j;
+        System.out.println(j + 1);
+        System.out.println(k + 1);
     }
 }
