@@ -1,0 +1,25 @@
+Case: 0156
+Case: 0145
+Case: 0134
+Case: 0123
+Case: 1256
+Case: 1245
+Case: 1234
+Case: 2356
+Case: 2345
+Case: 3456
+
+Case: 0156
+Case: 0145
+Case: 0134
+Case: 0123
+Case: 1256
+Case: 1245
+Case: 1234
+Case: 2356
+Case: 2345
+Case: 3456
+
+[-2,-1,-1,1,1,2,2]
+[[-2, -1, 1, 2], [-1, -1, 1, 1]]
+PS C:\Users\87335\Desktop\files\2021spring\java_practice\leetcode> 

@@ -6,8 +6,13 @@ public class tes {
         this.a = 4;
     }
     public static void main (String[] args) {
-        new Solution().main(args);
-        tes k = new tes();
-        System.out.println(k.a);
+        int a = 3;
+        List<Integer> p = new ArrayList<Integer>();
+        p.add(a);
+        a = 4;
+        for (int k: p)
+        {
+            System.out.println(k);
+        }
     }
 }
