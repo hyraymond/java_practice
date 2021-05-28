@@ -3,6 +3,7 @@ package one_eight;
 // Use the sort algorithm offered, reference: https://www.cnblogs.com/minshia/p/6283858.html
 // Tips, don't use static method or varient.
 // Basic type add collection with value, the other with reference.
+// For amend commit, use --force.
 import java.util.*;
 class Solution {
     private static HashSet<List<Integer>> pos = new HashSet<List<Integer>>();
