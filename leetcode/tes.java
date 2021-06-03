@@ -5,14 +5,12 @@ public class tes {
     tes(){
         this.a = 4;
     }
+    static int kkk(int[] k )
+    {
+        return k[0] = 3;
+    }
     public static void main (String[] args) {
-        int a = 3;
-        List<Integer> p = new ArrayList<Integer>();
-        p.add(a);
-        a = 4;
-        for (int k: p)
-        {
-            System.out.println(k);
-        }
+        int []a = {2};
+        System.out.println(kkk(a) + " "  + a[0]);
     }
 }
