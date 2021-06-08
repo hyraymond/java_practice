@@ -37,12 +37,13 @@ public class tes {
     }
 
     public static void main (String[] args) {
-        int k = 420;
-        List<Integer> result = find_prime_factor(k);
-        for (int i = 0; i < result.size(); ++i)
-        {
-            System.out.print(result.get(i) + " ");
-        }
-        System.out.println(" ");
+        // int k = 420;
+        // List<Integer> result = find_prime_factor(k);
+        // for (int i = 0; i < result.size(); ++i)
+        // {
+        //     System.out.print(result.get(i) + " ");
+        // }
+        // System.out.println(" ");
+        System.out.println((5) % 3);
     }
 }
