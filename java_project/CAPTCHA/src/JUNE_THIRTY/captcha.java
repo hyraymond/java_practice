@@ -1,3 +1,4 @@
+// To implement the admin and password login.
 package JUNE_THIRTY;
 
 import java.util.*;
@@ -45,6 +46,11 @@ public class captcha implements ActionListener, MouseListener{
 		f1.add(tf2);
 		f1.add(l1);
 		f1.add(l2);
+		
+		f1.setTitle("ÓÂÐ¡»¢");
+		Image icon = Toolkit.getDefaultToolkit().getImage("C:/Users/87335/Desktop/files/2021spring/java_practice/java_project/CAPTCHA/src/JUNE_THIRTY"
+				+ "/icon.jpg");
+		f1.setIconImage(icon);
 		
 		tf1.addActionListener(this);
 		tf1.addMouseListener(this);
