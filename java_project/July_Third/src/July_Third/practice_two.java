@@ -8,12 +8,13 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class practice_two implements Runnable{
+public class practice_two implements Runnable, ActionListener{
 	JFrame f;
 	Thread t = null;
 	int hours = 0, minutes = 0, seconds = 0;
 	String timeString = "";
 	JButton b;
+	JButton ps;
 	
 	practice_two() {
 		f = new JFrame();
@@ -24,8 +25,12 @@ public class practice_two implements Runnable{
 		
 		b = new JButton();
 		b.setBounds(100, 100, 100, 50);
+		ps = new JButton("PAUSE");
+		ps.setBounds(100, 200, 100, 50);
 		
+		ps.addActionListener(this);
 		f.add(b);
+		f.add(ps);
 		f.setSize(300, 400);
 		f.setLayout(null);
 		f.setVisible(true);
@@ -58,5 +63,21 @@ public class practice_two implements Runnable{
 	
 	public static void main (String[] args) {
 		new practice_two();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if (t.isAlive() == true)
+		{
+			t.interrupt();
+			ps.setText("RESUME");
+		}
+		else
+		{
+			t = new Thread(this);
+			t.start();
+			ps.setText("PAUSE");
+		}
 	}
 }
