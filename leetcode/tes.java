@@ -1,40 +1,40 @@
 import four.*;
 import java.util.*;
 class tes {
-    public int countVowelPermutation(int n) {
-        if(n <= 0)
-            return 0;
-        long[][] dp = new long[n][5];
-        //a->0  ,  e->1,  i->2,  o->3,  u->4
-        for(int i = 0;i < 5;i++)
-            dp[0][i] = 1L;
-        int mod = (int)Math.pow(10,9) + 7;
-        
-        for(int i = 1;i < n;i++){
-            //a前面可能为e,i,u
-            dp[i][0] = (dp[i - 1][1] + dp[i - 1][2] + dp[i - 1][4]);
-            //e前面可能为a,i
-            dp[i][1] = (dp[i - 1][0] + dp[i - 1][2]);
-            //i前面可能为e,o
-            dp[i][2] = (dp[i - 1][1] + dp[i - 1][3]);
-            //o前面可能为i,
-            dp[i][3] = dp[i - 1][2];
-            //u前面可能为i,o
-            dp[i][4] = (dp[i - 1][2] + dp[i - 1][3]);
+    int M = 1000000007;
+    public int numDecodings(String s) {
+        long[] dp = new long[s.length() + 1];
+        dp[0] = 1;
+        dp[1] = s.charAt(0) == '*' ? 9 : s.charAt(0) == '0' ? 0 : 1;
+        for (int i = 1; i < s.length(); i++) {
+            if (s.charAt(i) == '*') {
+                dp[i + 1] = 9 * dp[i];
+                if (s.charAt(i - 1) == '1')
+                    dp[i + 1] = (dp[i + 1] + 9 * dp[i - 1]) % M;
+                else if (s.charAt(i - 1) == '2')
+                    dp[i + 1] = (dp[i + 1] + 6 * dp[i - 1]) % M;
+                else if (s.charAt(i - 1) == '*')
+                    dp[i + 1] = (dp[i + 1] + 15 * dp[i - 1]) % M;
+            } else {
+                dp[i + 1] = s.charAt(i) != '0' ? dp[i] : 0;
+                if (s.charAt(i - 1) == '1')
+                    dp[i + 1] = (dp[i + 1] + dp[i - 1]) % M;
+                else if (s.charAt(i - 1) == '2' && s.charAt(i) <= '6')
+                    dp[i + 1] = (dp[i + 1] + dp[i - 1]) % M;
+                else if (s.charAt(i - 1) == '*')
+                    dp[i + 1] = (dp[i + 1] + (s.charAt(i) <= '6' ? 2 : 1) * dp[i - 1]) % M;
+            }
+            dp[i + 1] %= M;
         }
-        
-        int res = 0;
-        for(int i = 0;i < 5;i++){
-            res += dp[n - 1][i];
-        }
-        
-        return res;
-        
+        return (int) dp[s.length()];
     }
     public static void main(String[] args)
     {
-        int n = 100;
-        System.out.println(new tes().countVowelPermutation(n));
+        String s = "7*9*3*6*3*0*5*4*9*7*";
+        System.out.println(new tes().numDecodings(s));
+        int k = 322102000;
+        int p = 9 * k % 1000000007;
+        System.out.println(p);
     }
     
 }
