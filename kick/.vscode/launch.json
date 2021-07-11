@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch Solution",
+            "request": "launch",
+            "mainClass": "Round_D_2021_1.Solution",
+            "projectName": "kick_b5e0da17"
+        },
+        {
             "type": "pwa-msedge",
             "request": "launch",
             "name": "Open test.html",
