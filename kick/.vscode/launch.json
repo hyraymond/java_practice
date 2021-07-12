@@ -8,6 +8,13 @@
             "type": "java",
             "name": "Launch Solution",
             "request": "launch",
+            "mainClass": "Round_A_2016_1.Solution",
+            "projectName": "kick_b5e0da17"
+        },
+        {
+            "type": "java",
+            "name": "Launch Solution",
+            "request": "launch",
             "mainClass": "Round_D_2021_1.Solution",
             "projectName": "kick_b5e0da17"
         },
