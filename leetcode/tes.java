@@ -30,11 +30,10 @@ class tes {
     }
     public static void main(String[] args)
     {
-        String s = "7*9*3*6*3*0*5*4*9*7*";
-        System.out.println(new tes().numDecodings(s));
-        int k = 322102000;
-        int p = 9 * k % 1000000007;
-        System.out.println(p);
+        Map<Character, Integer> te = new HashMap<Character, Integer>();
+        te.put('a', 150);
+        System.out.println(te.get(('a')));
+        System.out.println(te.get(('b')));
     }
     
 }
