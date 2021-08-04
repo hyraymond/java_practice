@@ -11,7 +11,6 @@ class Solution {
         int a = (int)(Math.log(n)/Math.log(4));
         return Math.pow(4, a) == n;
     }
-}
     public static void main(String[] args)
     {
         int n = 0;

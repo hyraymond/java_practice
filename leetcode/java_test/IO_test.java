@@ -1,3 +1,4 @@
+package java_test;
 //This a simple test for Java IO stream.
 //2020/05/25
 /*
