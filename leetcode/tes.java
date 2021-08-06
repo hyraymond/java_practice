@@ -30,10 +30,9 @@ class tes {
     }
     public static void main(String[] args)
     {
-        Map<Character, Integer> te = new HashMap<Character, Integer>();
-        te.put('a', 150);
-        System.out.println(te.get(('a')));
-        System.out.println(te.get(('b')));
+        char[] p = {'a', 'b', 'c'};
+        String t = new String(p);
+        System.out.println(t);
     }
     
 }
