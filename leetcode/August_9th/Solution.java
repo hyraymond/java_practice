@@ -27,7 +27,6 @@ class Solution {
                 int remain = temp % 10;
                 key = temp / 10;
                 result.insert(0, (char)(remain + '0'));
-                --p1;
             }
         }
         if (p2 >= 0)
@@ -39,7 +38,6 @@ class Solution {
                 int remain = temp % 10;
                 key = temp / 10;
                 result.insert(0, (char)(remain + '0'));
-                --p2;
             }
         }
         if (key != 0)
