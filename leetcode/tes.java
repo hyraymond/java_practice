@@ -30,9 +30,21 @@ class tes {
     }
     public static void main(String[] args)
     {
-        char[] p = {'a', 'b', 'c'};
-        String t = new String(p);
-        System.out.println(t);
+        PriorityQueue<Integer> p = new PriorityQueue<Integer>();
+        p.add(3);
+        p.add(4);
+        p.add(2);
+        for (Integer q:p)
+        {
+            System.out.print(q+" ");
+        }
+        System.out.println(" ");
+        System.out.println(false == p.remove(1));
+        for (Integer q:p)
+        {
+            System.out.print(q+" ");
+        }
+        System.out.println(" ");
     }
     
 }
