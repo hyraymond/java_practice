@@ -1,5 +1,10 @@
 import four.*;
 import java.util.*;
+abstract class p1{
+    static{
+        System.out.println("this is p1");
+    }
+}
 class tes {
     int M = 1000000007;
     public int numDecodings(String s) {
