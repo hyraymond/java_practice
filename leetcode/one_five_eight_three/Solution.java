@@ -42,6 +42,11 @@ class Solution {
                         if (relation[k][a] < relation[k][y])
                         {
                             ++num;
+                            if (visited[k] == 0)
+                            {
+                                visited[k] = 1;
+                                ++num;
+                            }
                             break;
                         }
                     }
