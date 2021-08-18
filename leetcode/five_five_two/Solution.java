@@ -8,7 +8,7 @@ class Solution {
             return 1;
         }
 
-        final int c= (int)Math.pow(10, 3) + 7;
+        final int c= (int)Math.pow(10, 9) + 7;
         int[][][] dp = new int[n+1][2][3];
         dp[0][0][0] = 1;
         for (int i = 1; i <= n; ++i)
