@@ -53,5 +53,6 @@ public class Single_Pattern {
         Singleton a = Singleton.getInstance();
         Singleton b = Singleton.getInstance();
         System.out.println(a == b);
+        Object p = new Object();
     }
 }
