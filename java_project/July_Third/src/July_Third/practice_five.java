@@ -1,5 +1,14 @@
 package July_Third;
 
+/**
+* <p>Title: ${file_name}</p>
+* <p>Description: </p>
+* <p>Copyright: Copyright (c) 2013</p>
+* <p>Company: www.izhangheng.com</p>
+* @author yongxiaohu
+* @date ${date}
+* @version 1.0
+*/
 import java.util.*;
 import java.util.concurrent.*;
 class yh implements Cloneable{

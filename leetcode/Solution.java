@@ -1,93 +1,51 @@
 import java.util.*;
-class Solution {
-    class node implements Comparable{
-        int x;
-        int y;
-        int val;
-        node(int a, int b, int c)
-        {
-            x = a;
-            y = b;
-            val = c;
-        }
-        @Override
-        public int compareTo(Object o)
-        {
-            return val - ((node)o).val;
-        }
-    }
-    public int trapRainWater(int[][] heightMap) {
-        int m = heightMap.length;
-        int n = heightMap[0].length;
-        int[][] ifVisit = new int[m][n];
-        PriorityQueue<node> p = new PriorityQueue<node>();
-        int key = 0;
-        int result = 0;
-        for (int i = 0; i < m; ++i)
-        {
-            ifVisit[i][0] = 1;
-            ifVisit[i][n-1] = 1;
-            p.add(new node(i, 0, heightMap[i][0]));
-            p.add(new node(i, n-1, heightMap[i][n-1]));
-        }
-        for (int i = 1; i < n - 1; ++i)
-        {
-            ifVisit[0][i] = 1;
-            ifVisit[m-1][i] = 1;
-            p.add(new node(0, i, heightMap[0][i]));
-            p.add(new node(m-1, i, heightMap[m-1][i]));
-        }
-        while (!p.isEmpty())
-        {
-            node temp = p.peek();
-            key = temp.val;
-            p.poll();
-            if (temp.x - 1 >= 0 && ifVisit[temp.x-1][temp.y] == 0)
-            {
-                ifVisit[temp.x-1][temp.y] = 1;
-                if (heightMap[temp.x-1][temp.y] < key)
-                {
-                    result += (key - heightMap[temp.x-1][temp.y]);
-                    heightMap[temp.x-1][temp.y] = key;
-                }
-                p.add(new node(temp.x-1, temp.y, heightMap[temp.x-1][temp.y]));
-            }
-            if (temp.x + 1 < m && ifVisit[temp.x+1][temp.y] == 0)
-            {
-                ifVisit[temp.x+1][temp.y] = 1;
-                if (heightMap[temp.x+1][temp.y] < key)
-                {
-                    result += (key- heightMap[temp.x+1][temp.y]);
-                    heightMap[temp.x+1][temp.y] = key;
-                }
-                p.add(new node(temp.x+1, temp.y, heightMap[temp.x+1][temp.y]));
-            }
-            if (temp.y - 1 >= 0 && ifVisit[temp.x][temp.y-1] == 0)
-            {
-                ifVisit[temp.x][temp.y-1] = 1;
-                if (heightMap[temp.x][temp.y-1] < key)
-                {
-                    result += (key - heightMap[temp.x][temp.y-1] );
-                    heightMap[temp.x][temp.y-1] = key;
-                }
-                p.add(new node(temp.x, temp.y-1, heightMap[temp.x][temp.y-1]));
-            }
-            if (temp.y + 1 < n && ifVisit[temp.x][temp.y+1] == 0)
-            {
-                ifVisit[temp.x][temp.y+1] = 1;
-                if (heightMap[temp.x][temp.y+1] < key)
-                {
-                    result += (key - heightMap[temp.x][temp.y+1]);
-                    heightMap[temp.x][temp.y+1] = key;
-                }
-                p.add(new node(temp.x, temp.y+1, heightMap[temp.x][temp.y+1]));
-            }
-        }
-        return result;
-    }
-    public static void main(String[] args)
+
+public class Solution {
+    public static void tes(int[] nums, int index, PriorityQueue<Integer> con, int[] result)
     {
-        int[][] heightMap = {{3,3,3,3,3},{3,2,2,2,3},{3,2,1,2,3},{3,2,2,2,3},{3,3,3,3,3}};
-        System.out.println(new Solution().trapRainWater(heightMap));
+        int n = nums.length;
+        if (index < 0)
+        {
+            for (int i = 0; i < n; ++i)
+            {
+                result[i] = con.peek();
+                con.poll();
+            }
+        }
+        else 
+        {
+            if (!con.isEmpty() && nums[index] < con.peek())
+            {
+                for (int i = 0; i < index; ++i)
+                {
+                    result[i] = nums[i];
+                }
+                for (int i = index; i < n-1; ++i)
+                {
+                    result[i] = con.peek();
+                    con.poll();
+                }
+                result[n-1] = nums[index];
+            }
+            else
+            {
+                con.offer(nums[index]);
+                tes(nums, index-1, con, result);
+            }
+        }
+
+    }
+    public static void main(String[] args) {
+        // System.out.println("Hello World!");
+        int[] nums = {5, 4, 3, 2, 1};
+        int[] result = new int[nums.length];
+        PriorityQueue<Integer> con = new PriorityQueue<Integer>();
+        tes(nums, nums.length-1 , con, result);
+        for (int i = 0; i < nums.length; ++i)
+        {
+            System.out.print(result[i] + " ");
+        }
+        System.out.println(" ");
+
     }
 }
