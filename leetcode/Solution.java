@@ -1,51 +1,34 @@
 import java.util.*;
 
-public class Solution {
-    public static void tes(int[] nums, int index, PriorityQueue<Integer> con, int[] result)
+public class Solution{
+    public static int find(int start, int end, int[] arr)
     {
-        int n = nums.length;
-        if (index < 0)
+        if (start == end)
         {
-            for (int i = 0; i < n; ++i)
-            {
-                result[i] = con.peek();
-                con.poll();
-            }
+            return arr[start];
         }
-        else 
+        int mid = start + (end - start)/2;
+        int n = arr.length;
+        if (mid == n - 1)
         {
-            if (!con.isEmpty() && nums[index] < con.peek())
-            {
-                for (int i = 0; i < index; ++i)
-                {
-                    result[i] = nums[i];
-                }
-                for (int i = index; i < n-1; ++i)
-                {
-                    result[i] = con.peek();
-                    con.poll();
-                }
-                result[n-1] = nums[index];
-            }
-            else
-            {
-                con.offer(nums[index]);
-                tes(nums, index-1, con, result);
-            }
+            return find(n-1, n - 1, arr);
         }
-
+        if (arr[mid] < arr[mid + 1])
+        {
+            return find(mid + 1, end, arr);
+        }
+        else
+        {
+            return find(start, mid, arr);
+        }
     }
-    public static void main(String[] args) {
-        // System.out.println("Hello World!");
-        int[] nums = {5, 4, 3, 2, 1};
-        int[] result = new int[nums.length];
-        PriorityQueue<Integer> con = new PriorityQueue<Integer>();
-        tes(nums, nums.length-1 , con, result);
-        for (int i = 0; i < nums.length; ++i)
-        {
-            System.out.print(result[i] + " ");
-        }
-        System.out.println(" ");
-
+    public static void main(String[] args){
+        int[] arr = {4, 3, 2, 1};
+        int[] arr2 = {1 ,2, 3, 4};
+        int[] arr3 = {1, 3, 5, 6, 4, 2};
+        int result = find(0, arr.length-1, arr);
+        System.out.println(find(0, arr.length-1, arr));
+        System.out.println(find(0, arr.length-1, arr2));
+        System.out.println(find(0, arr.length-1, arr3));
     }
 }
