@@ -22,6 +22,8 @@ class Solution {
                 str.deleteCharAt(start);
                 str.insert(end, temp);
                 str.deleteCharAt(end);
+                ++start;
+                --end;
             }
         }
         return str.toString();
