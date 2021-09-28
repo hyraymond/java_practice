@@ -16,25 +16,25 @@ import java.util.*;
  *     }
  * }
  */
-class Solution {
-    private boolean dfs(TreeNode root, int targetSum, int temp)
-    {
-        if (root == null)
-        {
-            return false;
-        }
+// class Solution {
+//     private boolean dfs(TreeNode root, int targetSum, int temp)
+//     {
+//         if (root == null)
+//         {
+//             return false;
+//         }
 
-        temp += root.val;
-        if (root.left == null && root.right == null)
-        {
-            return temp == targetSum;
-        }
-        else
-        {
-            return dfs(root.left, targetSum, temp) || dfs(root.right, targetSum, temp);
-        }
-    }
-    public boolean hasPathSum(TreeNode root, int targetSum) {
-        return dfs(root, targetSum, 0);
-    }
-}
+//         temp += root.val;
+//         if (root.left == null && root.right == null)
+//         {
+//             return temp == targetSum;
+//         }
+//         else
+//         {
+//             return dfs(root.left, targetSum, temp) || dfs(root.right, targetSum, temp);
+//         }
+//     }
+//     public boolean hasPathSum(TreeNode root, int targetSum) {
+//         return dfs(root, targetSum, 0);
+//     }
+// }
