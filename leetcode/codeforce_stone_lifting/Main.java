@@ -1,4 +1,4 @@
-
+package codeforce_stone_lifting;
 import java.util.*;
 public class Main
 {
