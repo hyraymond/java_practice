@@ -3,26 +3,35 @@ import java.util.*;
 class Solution {
     public int firstMissingPositive(int[] nums) {
         int n = nums.length;
-        HashSet<Integer> con = new HashSet<Integer>();
-        for (int i = 0; i < n; ++i)
+        int i = 0;
+        int j = 0;
+
+        while(i < n)
         {
-            if (nums[i] > 0)
+            int key = nums[i];
+            if (key > 0 && key <= n && key != i + 1 && nums[key-1] != key)
             {
-                con.add(nums[i]);
+                int temp = nums[i];
+                nums[i] = nums[temp-1];
+                nums[temp - 1] = temp;
+            }
+            else 
+            {
+                ++i;
             }
         }
-        int a = 1;
-        while (true)
+        for (j = 0; j < n; ++j)
         {
-            if (con.contains(a) == true)
-            {
-                ++a;
-            }
-            else
+            if (nums[j] != j+1)
             {
                 break;
             }
         }
-        return a;
+        return j+1;
+    }
+    public static void main(String[] args)
+    {
+        int[] nums = {1, 1};
+        System.out.println(new Solution().firstMissingPositive(nums));
     }
 }
