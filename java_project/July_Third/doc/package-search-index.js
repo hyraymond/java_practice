@@ -1,1 +1,1 @@
-packageSearchIndex = [{"m":"July_Third","l":"July_Third"},{"l":"所有程序包","u":"allpackages-index.html"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"July_Third","l":"RangeList"}];updateSearchResults();
