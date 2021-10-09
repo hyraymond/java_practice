@@ -23,12 +23,19 @@ public class Solution{
         }
     }
     public static void main(String[] args){
-        int[] arr = {4, 3, 2, 1};
-        int[] arr2 = {1 ,2, 3, 4};
-        int[] arr3 = {1, 3, 5, 6, 4, 2};
-        int result = find(0, arr.length-1, arr);
-        System.out.println(find(0, arr.length-1, arr));
-        System.out.println(find(0, arr.length-1, arr2));
-        System.out.println(find(0, arr.length-1, arr3));
+        Set<Integer> q = new HashSet<Integer>();
+        q.add(1);
+        q.add(2);
+        q.add(3);
+        Iterator<Integer> p = q.iterator();
+        while(p.hasNext()){
+            int k = p.next();
+            if (k == 2){
+                p.remove();
+            }
+        }
+        for (Integer j: q){
+            System.out.println(j);
+        }
     }
 }
