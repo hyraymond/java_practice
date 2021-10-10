@@ -43,9 +43,9 @@ class Solution {
             if (dp[index][i] == true)
             {
                 temp.add(s.substring(index, i+1));
+                check(s, result, temp, dp, i+1);
+                temp.remove(temp.size() - 1);
             }
-            check(s, result, temp, dp, i+1);
-            temp.remove(temp.size() - 1);
         }
     }
 }
