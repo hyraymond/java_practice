@@ -19,23 +19,22 @@ class Solution {
         {
             buy[i] = -prices[0];
         }
-        int temp = Integer.MIN_VALUE;
+        int temp = 0;
         for (int i = 1; i < n; ++i)
         {
             buy[0] = Math.max(buy[0], -prices[i]);
             sell[0] = Math.max(sell[0], buy[0] + prices[i]);
-            temp = temp < sell[0] ? sell[0]: temp;
+            // temp = temp < sell[0] ? sell[0]: temp;
             for (int j = 1; j < k; ++j)
             {
                 buy[j] = Math.max(buy[j], sell[j-1] - prices[i]);
                 sell[j] = Math.max(sell[j], buy[j] + prices[i]);
-                temp = temp < sell[j] ? sell[j]: temp;
+                // temp = temp < sell[j] ? sell[j]: temp;
             }
         }
 
-        if (temp == Integer.MIN_VALUE)
-        {
-            return 0;
+        for (int i = 0; i < k; ++i){
+            temp = Math.max(temp, sell[i]);
         }
         return temp;
     }
