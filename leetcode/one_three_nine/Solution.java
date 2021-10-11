@@ -3,7 +3,9 @@ import java.util.*;
 class Solution {
     public boolean wordBreak(String s, List<String> wordDict) {
         int n = s.length();
-        Set<String> con = new HashSet<String>(wordDict);
+        Set<String> con = new HashSet<String>(wordDict) {{
+            addAll(wordDict);
+        }};
         boolean[] dp = new boolean[n+1];
         dp[0] = true;
 
