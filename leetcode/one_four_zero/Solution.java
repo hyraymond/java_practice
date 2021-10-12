@@ -68,6 +68,9 @@ class Solution {
                 add(p);
             }
         }};
-        new Solution().wordBreak(s, wordDict);
+        List<String> ls = new Solution().wordBreak(s, wordDict);
+        for(String p : ls){
+            System.out.println(p);
+        }
     }
 }
