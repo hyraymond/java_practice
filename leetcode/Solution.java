@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Solution{
+public class Solution extends HashMap<Integer, Integer>{
     public static int find(int start, int end, int[] arr)
     {
         if (start == end)
@@ -21,6 +21,10 @@ public class Solution{
         {
             return find(start, mid, arr);
         }
+    }
+    @Override
+    protected boolean removeEldestEntry(Map.Entry<Integer, Integer> eldest){
+        return size() > 2;
     }
     public static void main(String[] args){
         Set<Integer> q = new HashSet<Integer>();
